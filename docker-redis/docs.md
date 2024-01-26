@@ -12,11 +12,11 @@
 
 # Set password
 
-```CONFIG SET requirepass "mypass"```
+```CONFIG SET requirepass "foobar"```
 
 # Test again
 
-```AUTH mypass```
+```AUTH foobar```
 
 # Expected Result
 

@@ -23,7 +23,7 @@ def get_value(redis_instance, prefix, key):
 if __name__ == "__main__":
     redis_conn = connect_to_redis()
 
-    key_prefix = os.environ.get('REDIS_PREFIX', 'prefix_')
+    key_prefix = os.environ.get('REDIS_PREFIX', 'python_')
 
     key = "example_key"
     value = "example_value"
