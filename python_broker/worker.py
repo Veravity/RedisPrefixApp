@@ -11,9 +11,7 @@ def main():
     redis = Redis(**TaskWorkerConfig.broker)
     print(redis.get_connection_kwargs())
     print(redis.ping())
-    queue=Queue(redis)
-
-#    queue = Queue(connection=Redis(**TaskWorkerConfig.broker))
+    queue=Queue(connection=redis)
 
     job = queue.enqueue(set_example_key)
 

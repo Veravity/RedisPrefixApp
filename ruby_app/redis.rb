@@ -1,6 +1,17 @@
 require 'redis'
 
-redis_url_with_password = 'redis://foobar@localhost:6379'
+REDIS_SSL = ""
+REDIS_HOST = ""
+REDIS_PORT = ""
+REDIS_USERNAME = ""
+REDIS_PASSWORD = ""
+
+if REDIS_SSL
+  redis_url_with_password = "rediss://#{REDIS_USERNAME}:#{REDIS_PASSWORD}@#{REDIS_HOST}:#{REDIS_PORT}"
+else
+  redis_url_with_password = "redis://#{REDIS_HOST}:#{REDIS_PORT}"
+end
+
 folder = 'example_folder'
 prefix = "#{folder}:"
 
