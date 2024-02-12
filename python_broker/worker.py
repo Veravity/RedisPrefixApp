@@ -8,7 +8,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def main():
-    queue = Queue(connection=Redis(**TaskWorkerConfig.broker))
+    redis = Redis(**TaskWorkerConfig.broker)
+    print(redis.get_connection_kwargs())
+    print(redis.ping())
+    queue=Queue(redis)
+
+#    queue = Queue(connection=Redis(**TaskWorkerConfig.broker))
 
     job = queue.enqueue(set_example_key)
 
